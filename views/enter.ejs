@@ -1,0 +1,40 @@
+<%- include("partials/header") %> 
+<%- include("partials/navbar") %> 
+
+    <main class="container mb-5" id="Entermain">
+        <div class="col-md-6 mt-5" id="registerForm">
+            <form action="/home" method="POST">
+                <div class="mb-3">
+                  <label for="name" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="id" name="name" placeholder="Name" >
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" >
+                  </div>
+                  <div class="mb-3">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">+91</span>
+                        <input type="tel" name="phone" id="phone" class="form-control" placeholder="Phone Number"  aria-describedby="basic-addon1">
+                    </div>
+                </div>
+                <div class="row g-3 mb-3">
+                    <div class="col">
+                        <input class="form-control" type="number" name="cinh" id="cinh" min="0" max="23" placeholder="Hour" required>
+                    </div>
+                    <div class="col">
+                        <input class="form-control" type="number" name="cinm" id="cinm" min="0" max="59" placeholder="Min" required>
+                    </div>
+                  </div>
+                
+                <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+              </form>
+        
+        </div>
+
+            
+    </main>
+
+
+    <%- include("partials/footer") %> 

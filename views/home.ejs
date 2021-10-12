@@ -1,0 +1,44 @@
+<%- include("partials/header") %> 
+<%- include("partials/navbar") %> 
+     <div class="container mx-auto  mt-3 p-5" id="entryPage" >
+         <a href="/home/enter"><button type="button" class="btn btn-success">Enter the Building</button></a>
+     </div> 
+     <main class="container mb-3" style="min-height:100vh" >
+    <section>
+        <h2 style="text-align: center;" class="mb-5">Register</h2>
+        <table>
+        <%for(let d of data){%>
+                <tr id="firstrow">
+                    <td><strong>ID:</strong></td><td><%=d.id%></td>
+                    </tr>
+                <tr>
+                <td><strong>Name:</strong></td><td><%=d.name%></td>
+                </tr>
+                <tr>
+                    <td><strong>Email:</strong></td><td><%=d.email%></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Phone:</strong></td><td><%=d.phone%></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Check In Time:</strong></td><td><%if(d.cinh<=9){%><%=0%><%}%><%=d.cinh%>:<%if(d.cinm<=9){%><%=0%><%}%><%=d.cinm%></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Status:</strong></td><td><%=d.status%></td>
+                <%if(d.status==="Present"){%>
+                  <tr id="lastrow">  
+                <td><a href="/home/<%=d.id%>"><button type="button" class="btn btn-warning">Exit</button></a></td>
+                <%}else{%>
+                <tr>
+                    <td><strong>Check Out Time:</strong></td><td><%if(d.couth<=9){%><%=0%><%}%><%=d.couth%>:<%if(d.coutm<=9){%><%=0%><%}%><%=d.coutm%></td>
+                </tr><tr id="lastrow"><td></td>
+                    <%}%>
+                <form action="home/<%=d.id%>?_method=DELETE" method="POST">
+                 <td><button id="delete" type="submit" class="btn btn-danger">Delete Entry</button></td>
+                 </tr>
+            </form>
+            <%}%>
+        </table>
+</section>
+</main>
+<%- include("partials/footer") %> 

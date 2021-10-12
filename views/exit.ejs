@@ -1,0 +1,23 @@
+<%- include("partials/header") %> 
+<%- include("partials/navbar") %> 
+<main class="container" style="min-height:100vh">
+ <section id="exit">
+        <form id="exitForm" action="/home/<%=d.id%>?_method=PUT" method="POST">
+            <h2>Enter check out time(in 24 hrs format)</h2>
+            <div class="row g-3 mb-3">
+                <div class="col">
+                    <input class="form-control" type="number" name="couth" id="couth" min="0" max="23" placeholder="Hour" required>
+                </div>
+                <div class="col">
+                    <input class="form-control" type="number" name="coutm" id="coutm" min="0" max="59" placeholder="Min" required>
+                </div>
+              </div>
+            <button type="submit" class="btn btn-warning">Exit</button>
+        </form>
+        <div id="graphimg"></div>
+    </section>
+   
+
+</main>
+    
+    <%- include("partials/footer") %> 
